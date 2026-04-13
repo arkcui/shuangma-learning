@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐴 双马学习计划 | 马斯克 × 马云 周报</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .header .date {
+            display: inline-block;
+            background: #ff6b9d;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid #f0f0f0;
+        }
+        
+        .section-title .icon {
+            font-size: 2em;
+        }
+        
+        .section-title h2 {
+            font-size: 1.8em;
+            color: #333;
+        }
+        
+        .card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+        }
+        
+        .card.musk {
+            border-left-color: #e74c3c;
+        }
+        
+        .card.ma {
+            border-left-color: #ff6b35;
+        }
+        
+        .card-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+        }
+        
+        .tag-hot {
+            background: #ffe0e0;
+            color: #e74c3c;
+        }
+        
+        .tag-new {
+            background: #e0f7e0;
+            color: #27ae60;
+        }
+        
+        .tag-ai {
+            background: #e0e8ff;
+            color: #667eea;
+        }
+        
+        .card-content {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+        
+        .thinking {
+            background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-top: 16px;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .thinking-label {
+            font-weight: 700;
+            color: #d68910;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .thinking-content {
+            color: #7d6608;
+            line-height: 1.7;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        
+        .highlight-box h3 {
+            font-size: 1.4em;
+            margin-bottom: 12px;
+        }
+        
+        .highlight-box p {
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: 800;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            color: #888;
+            font-size: 0.9em;
+            margin-top: 4px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .footer a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(255,255,255,0.5);
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐴 双马学习计划</h1>
+            <p class="subtitle">探索科技巨头的思维方式与产业判断</p>
+            <span class="date">📅 2026年4月第2周</span>
+        </div>
+
+        <!-- 马斯克板块 -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">🚀</span>
+                <h2>马斯克 × Tesla/SpaceX/xAI</h2>
+            </div>
+            
+            <div class="card musk">
+                <div class="card-title">
+                    🎯 FSD获欧盟首个监管批准
+                    <span class="tag tag-hot">重磅</span>
+                </div>
+                <div class="card-content">
+                    荷兰成为欧洲首个批准特斯拉FSD的国家，目前已向少量车主推送FSD v14.2.2.5版本。车机界面新增FSD统计页面，可视化显示使用数据。v14.3版更新增雨天安全模式，检测到水滑风险时自动锁定"树懒模式"。
+                </div>
+                <div class="thinking">
+                    <div class="thinking-label">💭 我的思考</div>
+                    <div class="thinking-content">
+                        FSD终于迈入欧洲市场是里程碑事件。荷兰作为欧洲汽车安全标准最严格的国家之一，这个批准意味着FSD技术已经通过了极高门槛的验证。雨天安全模式的细节设计体现了特斯拉对安全的极致追求——不仅要"能开"，要"安全地开"。这也是对中国智驾市场的一个信号：FSD入华可能比预期更快。
+                    </div>
+                </div>
+            </div>
+
+            <div class="card musk">
+                <div class="card-title">
+                    ⚡ Terafab太空算力计划
+                    <span class="tag tag-ai">AI</span>
+                </div>
+                <div class="card-content">
+                    马斯克宣布Terafab计划：联合特斯拉、SpaceX、xAI自建史上最大芯片厂，目标年产耗电1TW（目前全球AI算力耗电的20倍）。最科幻的部分：<strong>80%算力部署到太空</strong>，建太空数据中心。马斯克预言：36个月内，太空将成为AI最便宜的落脚点。
+                </div>
+                <div class="thinking">
+                    <div class="thinking-label">💭 我的思考</div>
+                    <div class="thinking-content">
+                        这是马斯克"物理学思维"的完美体现：地球能源瓶颈 → 太空数据中心 → 星舰运力 → 人形机器人制造 → 火星移民。每个环节都在为下一个环节服务，形成闭环。虽然听起来科幻，但从工程角度分析：太阳能在太空的效率是地面5倍，且无需储能电池，这个数学是成立的。英特尔股价暴涨3.5倍也是因为抱上了Terafab的大腿。
+                    </div>
+                </div>
+            </div>
+
+            <div class="card musk">
+                <div class="card-title">
+                    🚗 Model S/X 签名限量版
+                    <span class="tag tag-new">新品</span>
+                </div>
+                <div class="card-content">
+                    特斯拉推出Model S/X Plaid签名版作为停产前最后批次，仅生产350台（S版型250台+X版型100台），售价约109万元人民币，仅限邀请制购买。Model S配备碳陶刹车+金色卡钳，Model X配备22英寸Machina轮毂+红色卡钳。
+                </div>
+                <div class="thinking">
+                    <div class="thinking-label">💭 我的思考</div>
+                    <div class="thinking-content">
+                        特斯拉在"货架化"豪华品牌，这是智能的商业操作：1）利用"绝版"概念提升品牌价值；2）清库存同时测试高端市场承接力；3）为未来新车型（如传闻中的新一代Roadster）让路。这也反映出特斯拉的战略转变：从"豪华电动车"向"大众化智能网络终端"过渡。
+                    </div>
+                </div>
+            </div>
+
+            <div class="card musk">
+                <div class="card-title">
+                    🚀 SpaceX IPO倒计时
+                    <span class="tag tag-hot">金融</span>
+                </div>
+                <div class="card-content">
+                    SpaceX已秘密提交IPO申请，目标估值2万亿美元。投资人看好发射业务和Starlink，但下一阶段增长驱动力来自xAI的Grok模型和Terafab芯片能力。与OpenAI的诉讼将于4月27日开庭。
+                </div>
+                <div class="thinking">
+                    <div class="thinking-label">💭 我的思考</div>
+                    <div class="thinking-content">
+                        2万亿美元估值是什么概念？差不多是2个阿里巴巴（约1万亿美元）。SpaceX的价值在于"垂直整合"：发射能力→星链网络→AI算力→主权AI服务。这是马斯克对出版社“解锁”的商业模式——不卖内容卖网络，不卖软件卖算力。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 马云板块 -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">👅</span>
+                <h2>马云 × 阿里/蚂蚁</h2>
+            </div>
+
+            <div class="card ma">
+                <div class="card-title">
+                    🏫 云谷学校亮相
+                    <span class="tag tag-hot">重磅</span>
+                </div>
+                <div class="card-content">
+                    2026开工首站，马云带领阿里、蚂蚁核心管理层集体亮相杭州云谷学校。马云强调：<strong>"AI变化来得非常快，快到谁都没做好准备，但教育必须迅速改变，不是等准备好了再改变"</strong>。指出AI技术正以"周"为单位迭代，生产效率提升将是历史性的。
+                </div>
+                <div class="thinking">
+                    <div class="thinking-label">💭 我的思考</div>
+                    <div class="thinking-content">
+                        马云选择以教育作为2026开工首站，这是高明的传播策略：一方面展示了他对AI的深层思考（人才培养），另一方面也在帮助阿里建立"技术先行者"的公众形象。"不等准备好再改变"这句话是关键——在AI时代，"先完成再完美"的思维已经不适用，"小步快跑、边走边调"才是正确策略。
+                    </div>
+                </div>
+            </div>
+
+            <div class="card ma">
+                <div class="card-title">
+                    📊 阿里Q3财报亮点
+                    <span class="tag tag-ai">AI</span>
+                </div>
+                <div class="card-content">
+                    “增收不增利"背后的AI大赌注：云收入增长36%，AI相关产品收入连续<strong>第十个季度三位数增长</strong>。投入3800亿元用于AI基础设施建设。通义千问月活用户超过3亿，已与淘宝、支付宝等生态打通。
+                </div>
+                <div class="thinking">
+                    <div class="thinking-label">💭 我的思考</div>
+                    <div class="thinking-content">
+                        阿里在复制AWS的成功路径：先用电商养云，再用云赚钱。AI产品连续10季度三位数增长，这说明AI已经从"战略布局"进入"商业变现"阶段。但短期利润下降57%也在提醒我们：AI竞争是一场耗资游戏，能否持续保持技术领先和商业化能力，是阿里下一阶段的核心考验。
+                    </div>
+                </div>
+            </div>
+
+            <div class="card ma">
+                <div class="card-title">
+                    🔄 Token Hub事业群
+                    <span class="tag tag-new">组织</span>
+                </div>
+                <div class="card-content">
+                    阿里成立Alibaba Token Hub（ATH）事业群，由CEO吴泳铭直接负责。这是面向AI Agent时代的重要组织调整，以"创造Token、输送Token、应用Token"为核心目标，整合通义实验室、MaaS、千问、悟空等AI业务。
+                </div>
+                <div class="thinking">
+                    <div class="thinking-label">💭 我的思考</div>
+                    <div class="thinking-content">
+                        "Token经济学"是阿里对AI时代商业模式的重新定义。传统云计算卖的是"算力"，AI时代卖的是"生成能力"——即每个Token的价值。这个组织调整说明阿里已经从"技术优先"转向"商业优先"，要把团队、技术、产品打通，形成完整闭环。
+                    </div>
+                </div>
+            </div>
+
+            <div class="card ma">
+                <div class="card-title">
+                    📈 阿里云涨价
+                    <span class="tag tag-hot">行业</span>
+                </div>
+                <div class="card-content">
+                    全球AI需求爆发导致供应链涨价，阿里云AI算力、存储等产品最高涨价34%。据称Token调用量暴涨是主要原因，阿里正将紧缺的AI算力资源向Token业务倾斜。消息一出，A股算力租赁概念股线涨。
+                </div>
+                <div class="thinking">
+                    <div class="thinking-label">💭 我的思考</div>
+                    <div class="thinking-content">
+                        这是市场给出的最直接信号：AI算力已经从"供过于求"变成"供不应求"。阿里云此时涨价有两重意图：1）溢价控制需求；2）提升毛利率回补投资。这也说明AI基础设施建设的"时间窗口"正在关闭，早期布局者将享受龙断效应。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 总结板块 -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">🎯</span>
+                <h2>本周核心洞察</h2>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>🔍 两位"马"的共同周期</h3>
+                <p>无论是马斯克的Terafab还是马云的Token Hub，两人都在做同一件事：<strong>抢占AI基础设施的制高点</strong>。马斯克选择"太空算力"作为差异化突破口，马云则选择"云+AI生态闭环"。两条路径不同，但逻辑相通：<strong>谁控制了算力和Token流动，谁就控制了AI时代的"石油"。</strong></p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">1TW</div>
+                    <div class="stat-label">Terafab目标年耗电</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2万亿</div>
+                    <div class="stat-label">SpaceX IPO估值（美元）</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3800亿</div>
+                    <div class="stat-label">阿里AI投资（元）</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3亿+</div>
+                    <div class="stat-label">通义千问月活</div>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 24px;">
+                <h3>💡 对游戏产业的启示</h3>
+                <p>从双马的布局中可以看出：<strong>AI时代的竞争已经从"应用层"下沉到"基础设施层"</strong>。对于火哥负责的游戏业务（九游、交易猫），关键问题不是"要不要用AI"，而是"如何建立自己的AI基础设施"。<br><br>
+                九游的"云游"、交易猫的"AI验证"都是正确的方向——<strong>把硬件（算力）和软件（游戏/交易场景）打通</strong>，形成闭环。这也是"游戏垂类AI原生应用"的本质。</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>📝 双马学习计划 | 每周一更新 | 记录于 2026-04-14</p>
+            <p style="margin-top: 10px;">作者：Hermes AI 助手 | 为 <a href="#">小火哥哥</a> 服务</p>
+        </div>
+    </div>
+</body>
+</html>
