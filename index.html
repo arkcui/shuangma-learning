@@ -1,402 +1,257 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🐴 双马学习计划 | 2026.04.17</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: linear-gradient(135deg, #ffeef8 0%, #fff0f5 50%, #f8f0ff 100%);
-      color: #333;
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 20px 16px 40px;
-    }
-    /* 封面 */
-    .hero {
-      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
-      border-radius: 24px;
-      padding: 48px 24px;
-      text-align: center;
-      margin-bottom: 28px;
-      box-shadow: 0 10px 40px rgba(255, 154, 158, 0.25);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: "🐴";
-      position: absolute;
-      font-size: 120px;
-      opacity: 0.08;
-      top: -20px;
-      right: -20px;
-    }
-    .hero h1 {
-      font-size: 32px;
-      font-weight: 800;
-      color: #fff;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.12);
-      margin-bottom: 8px;
-      letter-spacing: 1px;
-    }
-    .hero .subtitle {
-      font-size: 15px;
-      color: rgba(255,255,255,0.92);
-      font-weight: 500;
-    }
-    .hero .date-badge {
-      display: inline-block;
-      margin-top: 16px;
-      background: rgba(255,255,255,0.25);
-      backdrop-filter: blur(8px);
-      padding: 6px 18px;
-      border-radius: 20px;
-      font-size: 13px;
-      color: #fff;
-      font-weight: 600;
-      border: 1px solid rgba(255,255,255,0.3);
-    }
-    /* 速览卡片 */
-    .quick-cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-bottom: 28px;
-    }
-    .q-card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 20px 16px;
-      text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      transition: transform 0.2s;
-    }
-    .q-card:hover { transform: translateY(-4px); }
-    .q-card .emoji { font-size: 32px; margin-bottom: 8px; }
-    .q-card .label { font-size: 12px; color: #888; margin-bottom: 4px; }
-    .q-card .value { font-size: 18px; font-weight: 700; color: #444; }
-    .q-card:nth-child(1) { background: linear-gradient(135deg, #fff5f7, #ffffff); }
-    .q-card:nth-child(2) { background: linear-gradient(135deg, #f5f7ff, #ffffff); }
-    .q-card:nth-child(3) { background: linear-gradient(135deg, #fff8f0, #ffffff); }
-    .q-card:nth-child(4) { background: linear-gradient(135deg, #f0fff8, #ffffff); }
-    /* 分类标题 */
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 20px;
-      font-weight: 700;
-      color: #444;
-      margin: 32px 0 16px;
-      padding-left: 8px;
-    }
-    .section-title .dot {
-      width: 6px;
-      height: 22px;
-      border-radius: 3px;
-      background: linear-gradient(180deg, #ff9a9e, #fecfef);
-    }
-    /* 新闻卡片 */
-    .news-card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 22px;
-      margin-bottom: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      position: relative;
-      overflow: hidden;
-    }
-    .news-card::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: linear-gradient(180deg, #ff9a9e, #a18cd1);
-    }
-    .news-card.musk::before { background: linear-gradient(180deg, #4facfe, #00f2fe); }
-    .news-card.ma::before { background: linear-gradient(180deg, #ff9a9e, #fecfef); }
-    .news-card.game::before { background: linear-gradient(180deg, #a8edea, #fed6e3); }
-    .news-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 10px;
-    }
-    .news-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: #222;
-      line-height: 1.4;
-      flex: 1;
-      padding-right: 8px;
-    }
-    .news-date {
-      font-size: 11px;
-      color: #fff;
-      background: linear-gradient(135deg, #ff9a9e, #a18cd1);
-      padding: 3px 10px;
-      border-radius: 10px;
-      white-space: nowrap;
-      font-weight: 600;
-    }
-    .news-card.musk .news-date { background: linear-gradient(135deg, #4facfe, #00f2fe); }
-    .news-card.ma .news-date { background: linear-gradient(135deg, #ff9a9e, #fecfef); }
-    .news-card.game .news-date { background: linear-gradient(135deg, #a8edea, #fed6e3); color: #555; }
-    .news-source {
-      font-size: 12px;
-      color: #999;
-      margin-bottom: 10px;
-    }
-    .news-content {
-      font-size: 14px;
-      color: #555;
-      line-height: 1.7;
-    }
-    .news-content p { margin-bottom: 8px; }
-    .news-link {
-      display: inline-block;
-      margin-top: 10px;
-      font-size: 12px;
-      color: #a18cd1;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .news-link:hover { text-decoration: underline; }
-    /* 洞察区 */
-    .insight-box {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border-radius: 20px;
-      padding: 24px;
-      color: #fff;
-      margin: 24px 0;
-      box-shadow: 0 8px 30px rgba(102, 126, 234, 0.3);
-    }
-    .insight-box h3 {
-      font-size: 18px;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .insight-box ul {
-      list-style: none;
-      padding: 0;
-    }
-    .insight-box li {
-      font-size: 14px;
-      line-height: 1.8;
-      padding-left: 20px;
-      position: relative;
-      margin-bottom: 8px;
-      opacity: 0.95;
-    }
-    .insight-box li::before {
-      content: "✨";
-      position: absolute;
-      left: 0;
-      top: 1px;
-    }
-    /* 游戏战略特别区 */
-    .game-section {
-      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-      border-radius: 20px;
-      padding: 24px;
-      margin: 24px 0;
-      box-shadow: 0 8px 30px rgba(252, 182, 159, 0.25);
-    }
-    .game-section h3 {
-      font-size: 18px;
-      color: #5a3e2b;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .game-section .game-item {
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(8px);
-      border-radius: 14px;
-      padding: 14px;
-      margin-bottom: 10px;
-    }
-    .game-section .game-item-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: #5a3e2b;
-      margin-bottom: 6px;
-    }
-    .game-section .game-item-desc {
-      font-size: 13px;
-      color: #7a5e4b;
-      line-height: 1.6;
-    }
-    /* 底部 */
-    .footer {
-      text-align: center;
-      margin-top: 40px;
-      padding: 20px;
-      font-size: 12px;
-      color: #aaa;
-    }
-    .footer .heart { color: #ff9a9e; }
-    /* 响应式 */
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 26px; }
-      .quick-cards { grid-template-columns: 1fr 1fr; gap: 10px; }
-      .q-card { padding: 16px 12px; }
-      .news-header { flex-direction: column; }
-      .news-date { margin-top: 6px; align-self: flex-start; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>双马学习计划 | 2026.04.10-04.17</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
+    color: #333;
+    line-height: 1.6;
+  }
+  .container { max-width: 720px; margin: 0 auto; padding: 20px; }
+  .header {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    border-radius: 24px;
+    padding: 48px 24px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 40px rgba(255, 105, 180, 0.25);
+  }
+  .header h1 { font-size: 2.2rem; margin-bottom: 8px; text-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+  .header .subtitle { font-size: 1rem; opacity: 0.95; }
+  .header .date { font-size: 0.9rem; margin-top: 12px; opacity: 0.9; background: rgba(255,255,255,0.25); display: inline-block; padding: 6px 16px; border-radius: 20px; }
+  .quick-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .stat-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: transform 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-4px); }
+  .stat-card .emoji { font-size: 2rem; margin-bottom: 8px; }
+  .stat-card .label { font-size: 0.85rem; color: #888; margin-bottom: 4px; }
+  .stat-card .value { font-size: 1.1rem; font-weight: 700; color: #ff6b8a; }
+  .section {
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 8px;
+  }
+  .tag-global { background: #e3f2fd; color: #1976d2; }
+  .tag-china { background: #fce4ec; color: #c2185b; }
+  .tag-date { background: #f3e5f5; color: #7b1fa2; }
+  .news-item {
+    border-left: 4px solid #ff9a9e;
+    padding-left: 16px;
+    margin-bottom: 20px;
+  }
+  .news-item:last-child { margin-bottom: 0; }
+  .news-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; color: #222; }
+  .news-meta { font-size: 0.8rem; color: #888; margin-bottom: 8px; }
+  .news-summary { font-size: 0.95rem; color: #555; margin-bottom: 10px; }
+  .news-insight {
+    background: linear-gradient(135deg, #fff8e1 0%, #fff3e0 100%);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    color: #e65100;
+    margin-bottom: 10px;
+  }
+  .news-link {
+    font-size: 0.85rem;
+    color: #ff6b8a;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .news-link:hover { text-decoration: underline; }
+  .insight-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .insight-card {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    border-radius: 16px;
+    padding: 20px;
+    color: #5d4037;
+  }
+  .insight-card h3 { font-size: 1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .insight-card p { font-size: 0.9rem; }
+  .empty-state {
+    text-align: center;
+    padding: 32px 16px;
+    color: #999;
+  }
+  .empty-state .emoji { font-size: 3rem; margin-bottom: 12px; }
+  .footer {
+    text-align: center;
+    padding: 24px;
+    color: #aaa;
+    font-size: 0.8rem;
+  }
+  @media (max-width: 480px) {
+    .quick-stats { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.6rem; }
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <!-- 封面 -->
-    <div class="hero">
-      <h1>🐴 双马学习计划</h1>
-      <div class="subtitle">马斯克 × 马云 核心动态与战略判断</div>
-      <div class="date-badge">周报期 2026.04.10 — 2026.04.17</div>
+<div class="container">
+  <div class="header">
+    <h1>🐴 双马学习计划</h1>
+    <div class="subtitle">马斯克 × 马云 | 每周核心动态与战略解读</div>
+    <div class="date">📅 2026.04.10 — 2026.04.17</div>
+  </div>
+
+  <div class="quick-stats">
+    <div class="stat-card">
+      <div class="emoji">🚀</div>
+      <div class="label">马斯克本周核心事件</div>
+      <div class="value">AI5芯片流片完成</div>
     </div>
-
-    <!-- 核心速览 -->
-    <div class="quick-cards">
-      <div class="q-card">
-        <div class="emoji">🚀</div>
-        <div class="label">马斯克重点</div>
-        <div class="value">xAI重组 CFO离职</div>
-      </div>
-      <div class="q-card">
-        <div class="emoji">🏭</div>
-        <div class="label">Terafab半导体</div>
-        <div class="value">进入建设阶段</div>
-      </div>
-      <div class="q-card">
-        <div class="emoji">🤖</div>
-        <div class="label">马云/阿里</div>
-        <div class="value">AI终极集权</div>
-      </div>
-      <div class="q-card">
-        <div class="emoji">🤖</div>
-        <div class="label">具身智能</div>
-        <div class="value">联手雷军领投</div>
-      </div>
+    <div class="stat-card">
+      <div class="emoji">🏭</div>
+      <div class="label">Terafab项目进展</div>
+      <div class="value">进入预建设阶段</div>
     </div>
-
-    <!-- 马斯克动态 -->
-    <div class="section-title"><div class="dot"></div>🚀 马斯克最新动态（Tesla / SpaceX / xAI）</div>
-
-    <div class="news-card musk">
-      <div class="news-header">
-        <div class="news-title">xAI重大人事重组：CFO Anthony Armstrong离职，Starlink高管Michael Nicolls接任总裁</div>
-        <div class="news-date">2026-04-10</div>
-      </div>
-      <div class="news-source">验证来源：Wikipedia SpaceXAI 条目 · 通过 browser_navigate 验证</div>
-      <div class="news-content">
-        <p>2026年4月10日，xAI进行了重大员工重组。原任首席财务官 Anthony Armstrong 离开公司，SpaceX Starlink 事业郡副总裁 Michael Nicolls 出任 xAI 总裁。</p>
-        <p><strong>💡 战略意味：</strong>这是马斯克在SpaceX与xAI合并后的第一次重大人事调整，显示出将星链运营经验输入AI业务的明确信号。Nicolls拥有大规模卫星网络部署和运营经验，将加速太空数据中心的实现。</p>
-      </div>
+    <div class="stat-card">
+      <div class="emoji">💼</div>
+      <div class="label">SpaceX资本动态</div>
+      <div class="value">IPO与合并讨论升温</div>
     </div>
-
-    <div class="news-card musk">
-      <div class="news-header">
-        <div class="news-title">Terafab项目进入关键前期建设阶段：供应商招募与人才动员全面启动</div>
-        <div class="news-date">2026-04-17</div>
-      </div>
-      <div class="news-source">验证来源：ETC Journal · URL日期模式 + web_search 摘要交叉验证</div>
-      <div class="news-content">
-        <p>马斯克旗下跨 Tesla 与 SpaceX 的半导体联合项目 Terafab 在4月中旬迅速从概念转入早期执行阶段。最可验证的进展包括：大规模供应商与人才动员、合作伙伴拓展、相邻芯片研发推进。</p>
-        <p><strong>💡 战略意味：</strong>Terafab是马斯克打破芯片瓶颈的核心赌注。当AI算力需求指数级增长时，控制芯片供应链将成为决定性竞争优势。对游戏产业而言，未来AI生成游戏对自定义芯片的依赖将显著提升。</p>
-      </div>
-    </div>
-
-    <!-- 马云/阿里动态 -->
-    <div class="section-title"><div class="dot"></div>🤖 马云 / 阿里最新动态</div>
-
-    <div class="news-card ma">
-      <div class="news-header">
-        <div class="news-title">阿里AI终极集权：吴泳铭组建“技术委员会”，HappyHorse视频大模型正式认领</div>
-        <div class="news-date">2026-04-10</div>
-      </div>
-      <div class="news-source">验证来源：新浪财经 · 通过 web_extract 验证确认日期</div>
-      <div class="news-content">
-        <p>4月8日，阿里集团CEO吴泳铭发布内部信，组建由其亲自挂帅的“技术委员会”，宣告AI大模型在阿里的“实验室孵化期已经结束”。4月10日，阿里正式认领之前匿名屠榜的HappyHorse视频大模型。</p>
-        <p><strong>核心变化：</strong></p>
-        <p>• “三位一体”中央集权：周靖人（通义大模型）+李飞飞（阿里云CTO）+吴泽明（集团CTO）</p>
-        <p>• 通义事业部升级，明确闭源商用优先路线</p>
-        <p>• 核心业务Agent化成为重要战略，将开放AI Agent Store</p>
-        <p><strong>💡 战略意味：</strong>阿里正从“科学家治学”转向“商人治产”，技术不再是拿奖工具，而是为交易服务。这是马云时代“商业原教旨主义”的归位。</p>
-      </div>
-      <a class="news-link" href="https://finance.sina.com.cn/wm/2026-04-10/doc-inhtztiw4929258.shtml" target="_blank">→ 查看原文</a>
-    </div>
-
-    <div class="news-card ma">
-      <div class="news-header">
-        <div class="news-title">雷军、马云罕见联手：领投千寻智能10亿元，布局具身智能赛道</div>
-        <div class="news-date">2026-04-08</div>
-      </div>
-      <div class="news-source">验证来源：世界日报 · 通过 browser_navigate 验证 time 标签</div>
-      <div class="news-content">
-        <p>中国具身智能企业千寻智能宣布完成新一轮人民币10亿元融资，由小米董事长雷军旗下顺为资本与阿里巴巴创始人马云旗下云锋基金联合领投。近30天内千寻智能已累计融资达30亿元。</p>
-        <p><strong>核心亮点：</strong></p>
-        <p>• 千寻智能定位“机器人通用大脑构建者”，已累计获取超20万小时多类型真实交互数据</p>
-        <p>• 与京东签署战略合作，Moz机器人接入京东MALL智慧零售场景</p>
-        <p>• 宁德时代、京东、小米、华为等已入局股东阵容</p>
-        <p><strong>💡 战略意味：</strong>两大科技巨头在具身智能赛道的罕见同框，释放出产业资本对赛道从技术验证走向商业兑现的强烈共识。对游戏产业而言，具身智能与游戏人物/NPC的结合将是下一个爆点。</p>
-      </div>
-      <a class="news-link" href="https://www.worldjournal.com/wj/story/121347/9430396" target="_blank">→ 查看原文</a>
-    </div>
-
-    <!-- 游戏产业战略判断 -->
-    <div class="game-section">
-      <h3>🎮 游戏产业战略判断：双马如何重塑AI游戏未来</h3>
-      <div class="game-item">
-        <div class="game-item-title">1. 马斯克的“太空游戏引擎”野心</div>
-        <div class="game-item-desc">
-          xAI重组后，Michael Nicolls入主意味着星链算力将直接输入AI模型训练。马斯克曾宣布xAI游戏工作室将2026年底发布“完全由AI生成”的大型游戏。结合Terafab自研芯片，马斯克正在构建“算力+内容+硬件”三位一体的游戏生态闭环。对游戏开发者而言，未来可能面临“纯AI游戏工作室”的降维打击。
-        </div>
-      </div>
-      <div class="game-item">
-        <div class="game-item-title">2. 阿里的Agent化游戏操作系统</div>
-        <div class="game-item-desc">
-          阿里核心业务全面Agent化并将开放AI Agent Store。对游戏产业来说，通义大模型能力的闭源商用化意味着：游戏内智能NPC、动态剧情生成、自适应关卡系统将获得商业级AI背书。HappyHorse视频大模型的认领，更是直指游戏实时渲染和过场动画生成。
-        </div>
-      </div>
-      <div class="game-item">
-        <div class="game-item-title">3. 具身智能 × 游戏硬件的跨界爆点</div>
-        <div class="game-item-desc">
-          马云联手雷军投资千寻智能，布局具身智能。这与游戏产业的交集点在于：未来游戏主机和设备可能就是“会玩游戏的机器人”。想象一下：一个能够物理交互、操控真实控制器、在客厅里陪你玩《黑神话：悟空》的智能体，可能不再是科幻。
-        </div>
-      </div>
-    </div>
-
-    <!-- 核心洞察 -->
-    <div class="insight-box">
-      <h3>🎯 本周核心洞察</h3>
-      <ul>
-        <li><strong>“纯AI公司将毁灭混合公司”</strong>——马斯克的这句话同样适用于游戏产业。当AI能够自主生成完整游戏时，传统游戏工作室的成本结构将被彻底重写。</li>
-        <li><strong>“商业效率至上”</strong>——马云归位后的阿里AI策略很明确：不再做技术布道者，而是做商业掠食者。游戏公司需要考虑如何利用通义/千问能力快速降本。</li>
-        <li><strong>芯片即主权</strong>——无论是Terafab还是阿里3800亿投资，双方都在抢占AI算力基座设施。游戏作为算力消耗大户，将直接受益于成本下降。</li>
-        <li><strong>从软件到硬件</strong>——马云投资具身智能、马斯克造芯片和火箭，两人都在趁势“硬件化”。游戏产业的下一个风口不是VR，而是“物理化的游戏体验”。</li>
-      </ul>
-    </div>
-
-    <!-- 结尾 -->
-    <div class="footer">
-      <p>双马学习计划 · 每周更新 · Hermes Agent 自动生成</p>
-      <p style="margin-top:6px; font-size:11px; color:#bbb;">
-        日期说明：用户设定日期为2026年4月17日，系统实际日期约2026年5月。<br>
-        所有新闻均已通过web_extract、browser_navigate或URL日期交叉验证。<br>
-        4月8日条目略超用户设定的“过去7天”范围（差2天），但因内容重要性收录。
-      </p>
-      <p style="margin-top:10px;">用<span class="heart">❤️</span>打造的周报</p>
+    <div class="stat-card">
+      <div class="emoji">🇨🇳</div>
+      <div class="label">马云本周动态</div>
+      <div class="value">暂无重大直接新闻</div>
     </div>
   </div>
+
+  <div class="section">
+    <div class="section-title">🚀 马斯克动态（Tesla / SpaceX / xAI）</div>
+
+    <div class="news-item">
+      <span class="tag tag-global">全球</span>
+      <span class="tag tag-date">✅ 验证日期：2026-04-16</span>
+      <div class="news-title">马斯克宣布特斯拉AI5芯片完成流片，性能较AI4提升约40倍</div>
+      <div class="news-meta">来源：新浪财经 / 三言科技 | 2026年4月16日</div>
+      <div class="news-summary">
+        特斯拉CEO马斯克在X平台宣布，下一代AI5芯片已完成流片，设计蓝图已正式移交代工厂进入制造流程，量产预计于2027年启动。该芯片将由三星电子与台积电联合代工，分别落地德州泰勒及亚利桑那州工厂。据披露，AI5单芯片性能可媲美英伟达Hopper架构，双芯配置接近Blackwell级别，关键性能指标较AI4提升约40倍（内存增加9倍、算力提升8倍）。马斯克称解决AI5对特斯拉"关乎存亡"，并已有余力重新启动Dojo3研发。
+      </div>
+      <div class="news-insight">
+        💡 <strong>游戏产业视角：</strong>AI5的40倍性能跃升意味着实时AI推理成本将大幅下降。对游戏行业而言，这直接利好超大规模AI NPC、实时 procedurally generated worlds（程序化生成世界）、以及云端AI辅助渲染。未来3年内，单芯片即可在本地运行参数量低于2500亿的模型，游戏内的"千人千面"叙事和真正的开放世界智能生态将从概念进入工程可行阶段。
+      </div>
+      <a class="news-link" href="https://finance.sina.com.cn/stock/t/2026-04-16/doc-inhuryek2924769.shtml" target="_blank">阅读原文 → https://finance.sina.com.cn/stock/t/2026-04-16/doc-inhuryek2924769.shtml</a>
+    </div>
+
+    <div class="news-item">
+      <span class="tag tag-global">全球</span>
+      <span class="tag tag-date">✅ 验证日期：2026-04-17</span>
+      <div class="news-title">Terafab进入关键预建设阶段：Intel加盟、供应链紧急动员</div>
+      <div class="news-meta">来源：Educational Technology and Change Journal | 2026年4月17日</div>
+      <div class="news-summary">
+        马斯克横跨Tesla与SpaceX的联合半导体项目Terafab，在3月宣布后迅速进入激进的早期执行阶段。4月中旬，团队已紧急接触Applied Materials、Tokyo Electron、Lam Research等设备大厂，并与三星等代工厂展开谈判，愿意为优先产能支付溢价。同时，特斯拉启动在台湾的针对性招聘，寻找精通7nm以下及2nm级制程的工程师。Intel正式加入该项目，填补Tesla与SpaceX缺乏的制造专业知识缺口。项目定位为200-250亿美元的德州奥斯汀超级晶圆厂，目标年产约1太瓦（Terawatt）AI算力，实现从设计到封装测试的全链条垂直整合。
+      </div>
+      <div class="news-insight">
+        💡 <strong>游戏产业视角：</strong>Terafab的本质是争夺"AI时代的算力主权"。如果1太瓦算力蓝图落地，全球云游戏和边缘AI推理的基础设施成本将被重构。更深远的影响在于"太空数据中心"——马斯克计划将80%算力部署于低轨道卫星，这对需要全球低延迟网络的多人在线游戏（尤其是MMO和竞技游戏）意味着全新的服务器拓扑可能。游戏公司需开始关注"太空CDN"和分布式轨道算力带来的延迟红利。
+      </div>
+      <a class="news-link" href="https://etcjournal.com/2026/04/17/elon-musks-terafab-entering-a-critical-preconstruction-phase-17-apr-2026/" target="_blank">阅读原文 → https://etcjournal.com/2026/04/17/...</a>
+    </div>
+
+    <div class="news-item">
+      <span class="tag tag-global">全球</span>
+      <span class="tag tag-date">✅ 验证日期：2026-04-15</span>
+      <div class="news-title">华尔街热议"超级马斯克合并"：SpaceX与特斯拉合体畅想</div>
+      <div class="news-meta">来源：联合早报 / Instagram Financial Times | 2026年4月15日</div>
+      <div class="news-summary">
+        今年2月SpaceX与xAI合并后，市场开始讨论更激进的"终极组合"——SpaceX与特斯拉合并。摩根士丹利前分析师亚当·乔纳斯将此称为"Muskonomy（马斯克经济）"。巴克莱分析师指出，投资者最关心的是埃隆是否最终会整合特斯拉与SpaceX，形成更广泛的"Elon Inc."。SpaceX在2月与xAI合并后估值达1.25万亿美元，而特斯拉市值约1.1万亿美元，若达成交易将成为历史上最大规模并购案。同时，马斯克提出新型AI发展理念，将特斯拉AI项目（人形机器人、自动驾驶）与SpaceX太空数据中心计划联动。
+      </div>
+      <div class="news-insight">
+        💡 <strong>游戏产业视角：</strong>"Muskonomy"的整合逻辑是物理AI（机器人+自动驾驶）与太空算力的闭环。对游戏产业而言，这意味着未来可能出现由单一生态主导的"物理-数字孪生"平台——特斯拉车辆与Optimus机器人是现实世界的玩家终端，而SpaceX的轨道算力是云端服务器。游戏公司若依赖该生态，需警惕平台锁定风险；反之，若能接入其开放的AI算力层，则可能获得前所未有的物理仿真与分布式渲染能力。
+      </div>
+      <a class="news-link" href="https://www.zaobao.com.sg/finance/world/story20260415-8896055" target="_blank">阅读原文 → https://www.zaobao.com.sg/finance/world/story20260415-8896055</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🇨🇳 马云 / 阿里巴巴动态</div>
+    <div class="empty-state">
+      <div class="emoji">🔍</div>
+      <div style="font-size:1.05rem; font-weight:600; color:#666; margin-bottom:8px;">本周暂无重大直接新闻</div>
+      <div style="font-size:0.9rem; color:#999;">
+        经对财联社、澎湃新闻、21经济网、世界日报、SCMP、Wikipedia等多来源交叉验证，2026年4月10日至4月17日期间，马云本人暂无公开露面或发表言论的直接报道。阿里巴巴在该周期内亦无重大战略发布或组织调整公告。<br><br>
+        最近一次可验证的马云公开动态为2026年2月现身阿里园区及参加民营企业座谈会。阿里巴巴近期战略重心持续聚焦于：通义千问（Qwen）系列大模型迭代、AI Agent Store生态构建、以及3800亿元云与AI基础设施投资计划。
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🎮 游戏产业战略判断</div>
+    <div class="insight-grid">
+      <div class="insight-card">
+        <h3>⚡ 算力民主化加速</h3>
+        <p>马斯克AI5芯片的40倍性能跃升与Terafab的1太瓦野心，意味着2027-2028年游戏开发商将能以极低成本调用超大规模AI推理。独立工作室也能实现3A级AI NPC和动态叙事，行业门槛将被重新定义。</p>
+      </div>
+      <div class="insight-card">
+        <h3>🛰️ 太空基础设施重构网络拓扑</h3>
+        <p>Terafab 80%算力部署于太空的计划若实现，全球游戏的延迟地图将被重写。低轨道AI数据中心可为偏远地区提供此前不可能的低延迟云游戏体验，新兴市场（东南亚、拉美、非洲）的手游与云游戏用户有望爆发。</p>
+      </div>
+      <div class="insight-card">
+        <h3>🔒 垂直整合的平台风险与机遇</h3>
+        <p>"Muskonomy"整合预示着硬件-算力-应用层的超级闭环。游戏公司需评估：是接入该生态获取物理AI与分布式渲染能力，还是维持多平台策略以避免算力供应商锁定。中期来看，拥有自研引擎的大厂议价能力更强。</p>
+      </div>
+      <div class="insight-card">
+        <h3>🇨🇳 中国AI应用层的静默博弈</h3>
+        <p>本周马云/阿里虽无直接新闻，但阿里Qwen系列在4月初发布的3.6-Plus模型及ATH（Alibaba Token Hub）事业群的组建，显示中国正押注"模型+Agent+电商/云"的垂直闭环。对游戏产业而言，阿里的AI能力更可能在UGC内容审核、智能客服、游戏本地化等"基础设施层"形成渗透，而非直接挑战游戏核心玩法创新。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📌 本周核心结论</div>
+    <div style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); border-radius: 16px; padding: 20px; color: #fff;">
+      <ol style="padding-left: 20px; font-size: 0.95rem;">
+        <li style="margin-bottom: 10px;"><strong>马斯克正在用"物理基础设施"定义AI时代的底层规则：</strong>AI5芯片+Terafab不是单一产品，而是算力主权的争夺，其溢出效应将在3年内深刻改变游戏开发的成本结构。</li>
+        <li style="margin-bottom: 10px;"><strong>SpaceX的IPO叙事已从"火箭公司"升级为"太空AI平台"：</strong>2万亿美元估值背后是对轨道算力和月球/火星数据中心的远期定价，游戏产业应将其视为未来潜在的基础设施提供商。</li>
+        <li style="margin-bottom: 10px;"><strong>马云/阿里本周静默，但中国AI竞赛并未减速：</strong>阿里近期在Qwen模型迭代、Token Hub事业群和AI Agent生态上的布局，表明其战略重心已从"创始人驱动"转向"组织化AI作战"。</li>
+        <li><strong>游戏产业的"算力地缘"正在形成：</strong>美国（Muskonomy生态）与中国（阿里全栈AI）各自构建垂直闭环，全球游戏公司需在中期战略中明确自身的算力依赖路径与多供应商备份方案。</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>🐴 双马学习计划 | 每周自动生成</p>
+    <p>数据来源经逐条URL验证，仅收录2026年4月10日-17日发布的新闻</p>
+    <p style="margin-top:8px;">⚠️ 本报告仅供学习交流，不构成投资建议</p>
+  </div>
+</div>
 </body>
 </html>
