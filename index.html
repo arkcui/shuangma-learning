@@ -1,252 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>双马学习计划 | 2026.06.08</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-            color: #333;
-        }
-        .container { max-width: 420px; margin: 0 auto; }
-        .header {
-            text-align: center;
-            padding: 30px 0;
-            color: white;
-        }
-        .header h1 {
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        .header .date {
-            font-size: 14px;
-            opacity: 0.9;
-            margin-top: 8px;
-        }
-        .card {
-            background: white;
-            border-radius: 20px;
-            padding: 24px;
-            margin-bottom: 16px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
-            transition: transform 0.3s ease;
-        }
-        .card:hover { transform: translateY(-4px); }
-        .card-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-        .avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin-right: 12px;
-            flex-shrink: 0;
-        }
-        .avatar.musk { background: linear-gradient(135deg, #ff6b6b, #ee5a24); }
-        .avatar.jack { background: linear-gradient(135deg, #ffa502, #ff6348); }
-        .avatar.game { background: linear-gradient(135deg, #7bed9f, #2ed573); }
-        .card-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #2d3436;
-        }
-        .card-subtitle {
-            font-size: 12px;
-            color: #b2bec3;
-            margin-top: 2px;
-        }
-        .tag {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: 600;
-            margin-right: 6px;
-            margin-bottom: 8px;
-        }
-        .tag-red { background: #ffeaa7; color: #d63031; }
-        .tag-blue { background: #dfe6e9; color: #0984e3; }
-        .tag-green { background: #b8e994; color: #27ae60; }
-        .tag-purple { background: #e1b12c; color: #8e44ad; }
-        .content-text {
-            font-size: 14px;
-            line-height: 1.8;
-            color: #636e72;
-        }
-        .content-text strong {
-            color: #2d3436;
-            font-weight: 700;
-        }
-        .highlight-box {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            border-radius: 12px;
-            padding: 16px;
-            margin: 12px 0;
-            font-size: 13px;
-            color: #5d4037;
-        }
-        .highlight-box.blue {
-            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
-            color: #2c3e50;
-        }
-        .highlight-box.green {
-            background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
-            color: #1b5e20;
-        }
-        .footer {
-            text-align: center;
-            padding: 30px 0;
-            color: white;
-            font-size: 12px;
-            opacity: 0.8;
-        }
-        .divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #dfe6e9, transparent);
-            margin: 16px 0;
-        }
-        .source {
-            font-size: 11px;
-            color: #b2bec3;
-            margin-top: 12px;
-            text-align: right;
-        }
-        .insight {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 16px;
-            padding: 20px;
-            margin-top: 12px;
-        }
-        .insight h3 {
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-        .insight p {
-            font-size: 13px;
-            line-height: 1.7;
-            opacity: 0.95;
-        }
-        .emoji-bullet {
-            margin-right: 6px;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>双马学习计划｜2026-06-22</title>
+  <style>
+    :root{--pink:#ff6aa2;--rose:#ff8fb3;--orange:#ffb36b;--purple:#8b5cf6;--blue:#38bdf8;--ink:#1f2430;--muted:#697386;--card:rgba(255,255,255,.88)}
+    *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Noto Sans CJK SC",Arial,sans-serif;color:var(--ink);background:linear-gradient(135deg,#fff1f6 0%,#ffe4ef 28%,#fff7d6 58%,#e9f6ff 100%);}
+    .wrap{max-width:1080px;margin:0 auto;padding:28px 18px 52px}.hero{border-radius:32px;padding:40px 30px;background:radial-gradient(circle at 20% 0%,#fff 0 10%,transparent 35%),linear-gradient(135deg,#ff5fa2,#ffb86c 54%,#7dd3fc);color:#fff;box-shadow:0 24px 60px rgba(255,106,162,.28);position:relative;overflow:hidden}.hero:after{content:"双马";position:absolute;right:20px;bottom:-30px;font-size:120px;font-weight:900;opacity:.13}.kicker{display:inline-flex;gap:8px;align-items:center;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.22);backdrop-filter:blur(8px);font-weight:700}.hero h1{font-size:clamp(34px,6vw,64px);line-height:1.02;margin:18px 0 12px}.hero p{max-width:760px;font-size:18px;line-height:1.7;margin:0;opacity:.96}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}.stat,.card,.insight{background:var(--card);border:1px solid rgba(255,255,255,.75);box-shadow:0 12px 34px rgba(52,64,84,.10);border-radius:24px;padding:20px;backdrop-filter:blur(12px)}.stat b{display:block;font-size:30px;margin-bottom:4px}.stat span{color:var(--muted);font-weight:600}.section{margin-top:26px}.section h2{font-size:28px;margin:0 0 14px;display:flex;align-items:center;gap:10px}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.card h3{font-size:21px;margin:0 0 10px}.meta{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 12px}.tag{font-size:12px;font-weight:800;padding:6px 10px;border-radius:999px;background:#fff0f6;color:#c02663}.tag.blue{background:#e0f2fe;color:#0369a1}.tag.green{background:#dcfce7;color:#15803d}.tag.gray{background:#f1f5f9;color:#475569}.card p,.card li{line-height:1.72;color:#344054}.source{margin-top:14px;padding-top:12px;border-top:1px dashed #e5e7eb;font-size:13px;color:#667085}.source a{color:#e11d48;font-weight:800;text-decoration:none}.quote{font-size:19px;line-height:1.65;font-weight:800;background:linear-gradient(90deg,#e11d48,#7c3aed);-webkit-background-clip:text;color:transparent}.insights{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.insight{background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(255,241,246,.92))}.empty{border:2px dashed #fecdd3;background:rgba(255,255,255,.72)}table{width:100%;border-collapse:separate;border-spacing:0 10px}td,th{text-align:left;padding:13px 14px;background:#fff;border-top:1px solid #fee2e2;border-bottom:1px solid #fee2e2}th{background:#fff1f2;color:#9f1239}td:first-child,th:first-child{border-left:1px solid #fee2e2;border-radius:14px 0 0 14px}td:last-child,th:last-child{border-right:1px solid #fee2e2;border-radius:0 14px 14px 0}.footer{text-align:center;color:#667085;margin-top:34px}.notice{font-size:13px;background:rgba(255,255,255,.7);border-radius:18px;padding:14px;margin-top:16px;color:#667085}@media(max-width:860px){.grid,.cards,.insights{grid-template-columns:1fr}.hero{padding:30px 20px}.hero:after{font-size:74px}.stat b{font-size:24px}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🐎 双马学习计划</h1>
-            <div class="date">2026年6月8日 · 第1期</div>
-        </div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="kicker">📌 2026-06-22 执行｜搜索窗口：2026-06-15 至 2026-06-21</div>
+      <h1>双马学习计划<br>AI 基建 × 游戏工业化</h1>
+      <p>本期仅收录已访问来源页面并验证发布日期落在最近 7 天窗口内的信息。马斯克侧集中在 Tesla / xAI / SpaceX 的 AI、自动驾驶和资本叙事；马云侧本人本周无可验证直接新动态，阿里侧以云、Agent 与组织再造为主。</p>
+    </section>
 
-        <!-- 马斯克 -->
-        <div class="card">
-            <div class="card-header">
-                <div class="avatar musk">🚀</div>
-                <div>
-                    <div class="card-title">Elon Musk 马斯克</div>
-                    <div class="card-subtitle">SpaceX · Tesla · xAI</div>
-                </div>
-            </div>
-            <div>
-                <span class="tag tag-red">SpaceX IPO</span>
-                <span class="tag tag-blue">Tesla合并</span>
-                <span class="tag tag-purple">xAI重组</span>
-            </div>
-            <div class="content-text">
-                <p><span class="emoji-bullet">📅</span><strong>6月1日 TechCrunch</strong>：SpaceX在IPO修正案中警告投资者，上市后可能发行"大量股权"用于"未来交易"——被市场解读为为与Tesla合并铺路。</p>
-                <div class="highlight-box">
-                    💰 SpaceX IPO目标筹资<strong>750亿美元</strong>，估值或达<strong>1.75万亿美元</strong>。近期还与Cursor达成<strong>600亿美元</strong>股票收购期权。
-                </div>
-                <p><span class="emoji-bullet">🔥</span><strong>5月27日 Forbes</strong>：WedBush分析师Dan Ives认为Tesla与SpaceX在2027年合并的概率高达<strong>80%以上</strong>，合并后估值或达<strong>3.35-3.6万亿美元</strong>。</p>
-                <p><span class="emoji-bullet">⚡</span><strong>6月初 xAI动态</strong>：马斯克将xAI重组为四大团队——Grok（对话）、Coding（编程）、Imagine（视频生成）、Macro Hard（硬核项目），6位创始成员已离职。</p>
-            </div>
-            <div class="divider"></div>
-            <div class="insight">
-                <h3>🎯 战略判断</h3>
-                <p>马斯克正在构建"轨道AI帝国"：SpaceX提供算力基础设施（星链+数据中心），xAI提供模型能力，Tesla提供终端和数据。三合一的垂直整合一旦完成，将是人类历史上最大规模的科技 conglomerate。</p>
-            </div>
-            <div class="source">来源：TechCrunch 06/01 | Forbes 05/27 | CNBC 05/29</div>
-        </div>
+    <section class="grid">
+      <div class="stat"><b>5</b><span>条验证动态</span></div>
+      <div class="stat"><b>3</b><span>马斯克相关</span></div>
+      <div class="stat"><b>2</b><span>阿里相关</span></div>
+      <div class="stat"><b>0</b><span>马云本人本周直接新闻</span></div>
+    </section>
 
-        <!-- 马云 -->
-        <div class="card">
-            <div class="card-header">
-                <div class="avatar jack">🐴</div>
-                <div>
-                    <div class="card-title">马云 Jack Ma</div>
-                    <div class="card-subtitle">阿里巴巴 · 即时零售</div>
-                </div>
-            </div>
-            <div>
-                <span class="tag tag-green">组织调整</span>
-                <span class="tag tag-red">即时零售</span>
-                <span class="tag tag-blue">AI战略</span>
-            </div>
-            <div class="content-text">
-                <p><span class="emoji-bullet">📅</span><strong>6月5日 钛媒体</strong>：阿里即时零售进入"双寡头"决战阶段。淘宝闪购一年内市场份额冲至<strong>45%+</strong>，日订单峰值<strong>1.2亿单</strong>，月交易用户突破<strong>3亿</strong>。</p>
-                <div class="highlight-box blue">
-                    🏢 <strong>6月2日组织大调整</strong>：盒马正式划归蒋凡体系，CTO吴泽明进入阿里合伙人委员会（最高决策层）。这意味着AI技术与即时零售的优先级被同时推至最高。
-                </div>
-                <p><span class="emoji-bullet">💸</span>代价是惨重的：汇丰测算阿里过去12个月在即时零售上<strong>亏损870亿元</strong>。但阿里态度坚决——"三年不惧亏损，目标绝对第一"。</p>
-                <p><span class="emoji-bullet">🤖</span>5月20日致股东信将即时零售定位为"淘宝与天猫全面升级的核心战略支柱"，从战术选择升级为<strong>战略本垒</strong>。</p>
-            </div>
-            <div class="divider"></div>
-            <div class="insight">
-                <h3>🎯 战略判断</h3>
-                <p>马云/阿里的"All in即时零售"是一场不能输的卫国战争。输掉即时零售=输掉电商边界安全。盒马+天猫超市+淘宝闪购的"三张网络"闭环，是阿里用870亿买来的时间窗口。未来12个月能否UE转正，将决定这盘大棋的生死。</p>
-            </div>
-            <div class="source">来源：钛媒体 06/05 | 阿里财报 05/13</div>
-        </div>
+    <section class="section">
+      <h2>🚀 马斯克动态：把 AI 从“内容工具”推向“行动系统”</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>✅ 验证发布日期：2026-06-18｜Tesla 将让 Grok 深度介入 FSD 指令</h3>
+          <div class="meta"><span class="tag">Tesla</span><span class="tag blue">xAI</span><span class="tag green">自动驾驶</span></div>
+          <p>Teslarati 报道，马斯克在 X 上确认 Tesla 计划约 3 个月内让车主用 Grok 更自然地指导 FSD，例如“这里右转”“先在入口下车再自己停车”。这意味着 Grok 不只是车内问答助手，而可能成为自动驾驶的意图解释层。</p>
+          <p class="quote">战略含义：车载 AI 的下一步不是“更会聊天”，而是把自然语言翻译成可执行的空间动作。</p>
+          <div class="source">来源：Teslarati｜<a href="https://www.teslarati.com/tesla-teases-grok-integration-banish-fsd-3-months-elon-musk/">原文链接</a></div>
+        </article>
 
-        <!-- 游戏产业 -->
-        <div class="card">
-            <div class="card-header">
-                <div class="avatar game">🎮</div>
-                <div>
-                    <div class="card-title">游戏产业洞察</div>
-                    <div class="card-subtitle">AI重构 · 暑期档 · 出海</div>
-                </div>
-            </div>
-            <div>
-                <span class="tag tag-purple">腾讯42款</span>
-                <span class="tag tag-green">AI赋能</span>
-                <span class="tag tag-red">版号加速</span>
-            </div>
-            <div class="content-text">
-                <p><span class="emoji-bullet">🚀</span><strong>6月1日 腾讯游戏发布会</strong>：一口气发布<strong>42款产品</strong>（15款新品），9项游戏AI应用进展。《和平精英》推出策略大模型驱动的AI队友"小田"，绿洲启元实装UGC全链路AI创作助手。</p>
-                <div class="highlight-box green">
-                    🤖 腾讯自研AI游戏创作平台<strong>"代号Craft"</strong>亮相：输入文字指令，AI快速搭建2D/3D游戏雏形。AI正从"外挂工具"进化为"核心生产力"。
-                </div>
-                <p><span class="emoji-bullet">📊</span><strong>版号数据</strong>：2026年1-4月累计发放版号<strong>621个</strong>，同比增长21.8%。4月单月154款，大厂主力产品密集获批。</p>
-                <p><span class="emoji-bullet">🌊</span><strong>出海加速</strong>：Q1自研游戏海外收入63.31亿美元，同比大增<strong>31.76%</strong>。客户端游戏收入同比增39.38%，端游复苏明显。</p>
-            </div>
-            <div class="divider"></div>
-            <div class="insight">
-                <h3>🎯 战略判断</h3>
-                <p>游戏行业正经历"AI生产力革命"：版号常态化提供弹药，AI提供效率，暑期档提供考场。但核心矛盾是——AI降低了开发门槛，却抬高了"成功门槛"。腾讯的"广种薄收"42款矩阵 vs 网易的"十年磨一剑"精品路线，代表了两种AI时代生存策略。对中小团队而言，AI Agent可能是唯一弯道超车的机会。</p>
-            </div>
-            <div class="source">来源：腾讯新闻 06/01 | 17173 05/21 | 国信证券 06/02</div>
-        </div>
+        <article class="card">
+          <h3>✅ 验证发布日期：2026-06-17｜马斯克称 Grok 年底可挑战完整电影生成</h3>
+          <div class="meta"><span class="tag blue">xAI</span><span class="tag">Grok Imagine</span><span class="tag green">AI 视频</span></div>
+          <p>报道显示，马斯克转发 xAI 的 AI 生成预告片并表示“Full movies by the end of this year”。文章提到 Grok Imagine Video 1.5 已展示 2 分钟级别的影像生成能力。</p>
+          <p class="quote">战略含义：xAI 正在把 Grok 从文本助手推向“视频内容引擎”，对游戏 CG、剧情分镜、宣发素材生成都会形成降本冲击。</p>
+          <div class="source">来源：Teslarati｜<a href="https://www.teslarati.com/elon-musk-predicts-grok-will-start-to-challenge-hollywood-by-the-end-of-2026/">原文链接</a></div>
+        </article>
 
-        <div class="footer">
-            <p>双马学习计划 · 每周一更</p>
-            <p>马斯克 × 马云 × 游戏产业战略洞察</p>
-            <p style="margin-top:8px;">github.com/arkcui/shuangma-learning</p>
-        </div>
-    </div>
+        <article class="card">
+          <h3>✅ 验证发布日期：2026-06-18｜马斯克行权 Tesla 2018 激励，强化“帝国整合”叙事</h3>
+          <div class="meta"><span class="tag">Tesla</span><span class="tag blue">SpaceX</span><span class="tag gray">资本结构</span></div>
+          <p>页面显示，SEC Form 4 于 6 月 17 日披露，马斯克在 6 月 16 日行权 303,960,630 份 Tesla 股票期权，没有在公开市场出售股份。文章将其与 SpaceX 上市及潜在整合叙事联系起来。</p>
+          <p class="quote">战略含义：马斯克的核心打法仍是“技术飞轮 + 资本飞轮”同步加速：AI、车、火箭、数据与叙事互相抬升估值。</p>
+          <div class="source">来源：Teslarati｜<a href="https://www.teslarati.com/elon-musk-tesla-options-spacex-merger/">原文链接</a></div>
+        </article>
+
+        <article class="card">
+          <h3>✅ 验证发布日期：2026-06-15｜SpaceX 上市后首次 Falcon 9 发射</h3>
+          <div class="meta"><span class="tag blue">SpaceX</span><span class="tag green">Starlink</span><span class="tag gray">基础设施</span></div>
+          <p>SpaceX 在 6 月 15 日执行上市后的首次 Falcon 9 / Starlink 发射，部署 24 颗 Starlink V2 Mini Optimized 卫星，一级火箭完成海上回收。</p>
+          <p class="quote">战略含义：SpaceX 的可复用发射能力正在把“天基网络”变成 AI 与全球实时服务的底层分发层。</p>
+          <div class="source">来源：Teslarati｜<a href="https://www.teslarati.com/spacex-soars-first-launch-public-company-new-era/">原文链接</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>☁️ 马云 / 阿里动态：马云本周低调，阿里把 AI 落到组织和海外云</h2>
+      <div class="cards">
+        <article class="card empty">
+          <h3>🔍 马云本人：本周暂无可验证直接新闻</h3>
+          <div class="meta"><span class="tag gray">空状态</span><span class="tag">已排查</span></div>
+          <p>已检索中文“马云 最新/现身/阿里 AI 过去一周”、英文“Jack Ma Alibaba latest past week”、SCMP Jack Ma 主题页、Wikipedia/主流媒体线索。最近可验证的马云公开 AI 教育讨论多集中于 2026-03-03/03-04，早于本期窗口，因此不收录为本周新闻。</p>
+          <p class="quote">判断：马云本人继续扮演“价值观与方向感”符号，阿里本周实际动作由吴泳铭体系下的云、Agent、钉钉组织承担。</p>
+        </article>
+
+        <article class="card">
+          <h3>✅ 验证发布日期：2026-06-18｜阿里云日本第五座数据中心上线</h3>
+          <div class="meta"><span class="tag blue">Alibaba Cloud</span><span class="tag green">AI 基础设施</span><span class="tag">日本市场</span></div>
+          <p>阿里云官方新闻稿显示，其在东京上线日本第五座数据中心，并将 Model Studio、Qwen3.7-Plus、HappyHorse 视频生成、Qwen3.5-Omni 等 AI 能力引入日本，明确提到服务零售、游戏、娱乐、制造等行业需求。</p>
+          <p class="quote">战略含义：阿里的出海不是单纯卖云，而是把“Qwen + Model Studio + 数据中心”打包成企业 Agent 工厂。</p>
+          <div class="source">来源：Alibaba Cloud Press Room｜<a href="https://www.alibabacloud.com/en/press-room/alibaba-cloud-expands-ai-infrastructure-in-japan?_p_lc=1">原文链接</a></div>
+        </article>
+
+        <article class="card">
+          <h3>✅ 验证发布日期：2026-06-18｜钉钉新 CEO 发布全员信，重组五大部门</h3>
+          <div class="meta"><span class="tag">钉钉</span><span class="tag blue">AI Agent</span><span class="tag green">组织调整</span></div>
+          <p>IT之家与证券时报均验证，陈宇森上任后发布首封全员信：成立核心平台业务部、整合悟空与 MuleRun、成立客户发展部、市场部、公司信息技术部，并提出“让一切系统易于被 Agent 使用”。</p>
+          <p class="quote">战略含义：阿里把 ToB 入口从协同软件升级为 Agent 操作系统，钉钉/悟空可能成为企业流程自动化的前台。</p>
+          <div class="source">来源：IT之家 / 证券时报｜<a href="https://www.ithome.com/0/966/139.htm">IT之家</a> · <a href="https://www.stcn.com/article/detail/3969492.html">证券时报</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>🎮 游戏产业战略判断</h2>
+      <div class="card">
+        <table>
+          <thead><tr><th>维度</th><th>马斯克路线</th><th>阿里路线</th><th>对游戏公司的启发</th></tr></thead>
+          <tbody>
+            <tr><td>AI 入口</td><td>Grok 进入车、视频、自动驾驶动作系统</td><td>Qwen / Model Studio / 钉钉 Agent 进入企业流程</td><td>游戏 AI 不应只做 NPC 聊天，而要连接任务、交易、UGC、客服、运营动作</td></tr>
+            <tr><td>基础设施</td><td>Starlink + SpaceX 强化全球实时网络叙事</td><td>日本数据中心 + 本地 AI 服务</td><td>出海游戏需要低延迟云、合规数据、本地化模型能力</td></tr>
+            <tr><td>内容生产</td><td>Grok Imagine 指向长视频 / 电影级生成</td><td>HappyHorse 视频生成进入企业平台</td><td>宣发素材、分镜、过场动画、广告变体将被 AI 大幅压缩成本</td></tr>
+            <tr><td>组织形态</td><td>强 CEO 驱动的跨公司协同</td><td>钉钉围绕 Agent 重构部门与系统</td><td>AI 转型不是工具采购，而是组织流程重写</td></tr>
+          </tbody>
+        </table>
+        <p class="quote">终极判断：下一代游戏公司的核心竞争力，是把 AI 从“美术/文案外挂”升级为“可执行的游戏生产与运营操作系统”。</p>
+      </div>
+    </section>
+
+    <section class="section insights">
+      <div class="insight"><h3>💡 金句 1</h3><p>AI 真正改变游戏，不是让 NPC 更会说话，而是让世界更会行动。</p></div>
+      <div class="insight"><h3>💡 金句 2</h3><p>马斯克做的是“跨物理世界的 AI”，阿里做的是“跨企业流程的 AI”。</p></div>
+      <div class="insight"><h3>💡 金句 3</h3><p>游戏出海的底座将从 CDN 竞争，升级为“云 + 模型 + Agent 工具链”的综合竞争。</p></div>
+    </section>
+
+    <div class="notice">日期验证说明：执行日为 2026-06-22，窗口按“从昨天倒推 7 天”取 2026-06-15 至 2026-06-21。每条收录信息均先尝试 web_extract；对被阻止的来源使用浏览器读取页面 time/meta/正文发布日期后收录。早于窗口的结果已删除。</div>
+    <div class="footer">双马学习计划 · 自动生成 · GitHub Pages</div>
+  </main>
 </body>
 </html>
